@@ -1,4 +1,4 @@
-import { Category, Transaction } from './types';
+import type { Category, Transaction } from '../components/types';
 
 export const CATEGORIES: Category[] = [
   'Groceries',

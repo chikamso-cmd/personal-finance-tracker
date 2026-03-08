@@ -13,7 +13,7 @@ interface SidebarProps {
   activeTab: string;
   setActiveTab: (tab: string) => void;
   budgetOverview: { spent: number; limit: number };
-  onNavigate?: () => void; // called after selecting a menu item (useful for closing mobile drawer)
+  onNavigate?: () => void; 
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab, budgetOverview, onNavigate }:SidebarProps) => {

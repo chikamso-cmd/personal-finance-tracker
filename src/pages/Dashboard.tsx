@@ -36,15 +36,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "./lib/utils";
 import type { Transaction, Budget } from "../components/types";
 import { CATEGORIES, CATEGORY_COLORS, INITIAL_TRANSACTIONS } from "./constants";
-
-// component imports separated into their own files
 import Sidebar from "../components/Sidebar";
 import StatCard from "../components/StatCard";
 import TransactionModal from "../components/TransactionModal";
 
-// components have been moved into their own files for better organization
-
-// --- Main App ---
 
 export default function Dashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");

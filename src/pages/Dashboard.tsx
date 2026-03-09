@@ -160,9 +160,9 @@ export default function Dashboard() {
           />
         </div>
 
-        <main className="flex-1 ml-0 md:ml-64 p-8 overflow-hidden">
+        <main className="flex-1 ml-0 md:ml-64 md:p-8 p-3 overflow-hidden">
           {/* Header */}
-          <header className="flex justify-between items-center mb-10 gap-5">
+          <header className="flex justify-between items-center mb-10  mt-10 md:mt-0 gap-5">
             <div className="flex items-center gap-4">
               <button
                 className="md:hidden absolute right-0 top-0 p-5 rounded-md"

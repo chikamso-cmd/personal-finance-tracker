@@ -220,6 +220,7 @@ export default function Dashboard() {
           </header>
 
           {/* Stats Grid */}
+        <p className="text-[12px] md:text-sm  py-3 text-gray-400">Add a Transaction to continue</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <StatCard
               title="Monthly Income"

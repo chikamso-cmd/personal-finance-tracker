@@ -13,6 +13,7 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ title, amount, change, type, icon: Icon, colorClass }) => (
   <div className="bg-white rounded-2xl p-6 shadow-sm border border-black/5 flex flex-col justify-between">
+    
     <div className="flex justify-between items-start mb-4">
       <div className={cn("p-3 rounded-xl", colorClass)}>
         <Icon size={20} className="text-white" />

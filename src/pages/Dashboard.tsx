@@ -41,8 +41,9 @@ import StatCard from "../components/StatCard";
 import TransactionModal from "../components/TransactionModal";
 
 
+
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState("dashboard");
+  const [activeTab, setActiveTab] = useState<DashboardProps>("dashboard");
   const [transactions, setTransactions] = useState<Transaction[]>(() => {
     const saved = localStorage.getItem("fintrack_transactions");
     return saved ? JSON.parse(saved) : INITIAL_TRANSACTIONS;
@@ -164,23 +165,23 @@ export default function Dashboard() {
           <header className="flex justify-between items-center mb-10 gap-5">
             <div className="flex items-center gap-4">
               <button
-                className="md:hidden p-2 rounded-md"
+                className="md:hidden absolute right-0 top-0 p-5 rounded-md"
                 onClick={() => setSidebarOpen(true)}
               >
                 <Menu size={24} />
               </button>
               <div>
-                <h1 className="text-[16px] md:text-[20px] font-bold text-gray-900 ">
+                <h1 className="text-[10px] md:text-[16px] font-bold text-gray-900 ">
                   Welcome back, John!
                 </h1>
-                <p className="text-gray-500 text-[12px] md:text-[16px]">
+                <p className="text-gray-500 text-[10px] md:text-[12px]">
                   Here's what's happening with your money today.
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-6">
-              <div className="relative hidden lg:block">
-                <Search
+              <div className="relative  lg:block">
+                {/* <Search
                   className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
                   size={18}
                 />
@@ -188,7 +189,14 @@ export default function Dashboard() {
                   type="text"
                   placeholder="Search..."
                   className="pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500 transition-all w-full md:w-64"
-                />
+                /> */}
+                  <button
+                onClick={() => setIsModalOpen(true)} title="add a transaction to start"
+                className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-blue-700 transition-all shadow-lg shadow-blue-200 text-[12px] md:text-xs"
+              >
+                <Plus size={18} />
+                Add Transaction
+              </button>
               </div>
               <button className="p-2 bg-white border border-gray-200 rounded-xl text-gray-500 hover:text-blue-600 transition-colors relative">
                 <Bell size={20} />
@@ -203,9 +211,9 @@ export default function Dashboard() {
                 />
                 <div className="text-sm">
                   <p className="font-semibold text-gray-900 text-[12px] md:text-[16px]">
-                    John Doe
+                    John
                   </p>
-                  <p className="text-gray-500 text-xs">Premium Plan</p>
+                  {/* <p className="text-gray-500 text-xs">Premium Plan</p> */}
                 </div>
                 <ChevronDown size={16} className="text-gray-400" />
               </div>
@@ -248,10 +256,10 @@ export default function Dashboard() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
             <div className="lg:col-span-2 bg-white p-6 rounded-3xl shadow-sm border border-black/5">
               <div className="flex justify-between items-center mb-8">
-                <h3 className="text-lg font-bold text-gray-900">
+                <h3 className="md:text-lg text-[12px] font-bold text-gray-900">
                   Income vs Expenses
                 </h3>
-                <div className="flex gap-4 text-sm">
+                <div className="flex gap-4 md:text-sm text-[12px]">
                   <div className="flex items-center gap-2">
                     <span className="w-3 h-3 rounded-full bg-blue-500"></span>
                     <span className="text-gray-500">Income</span>
@@ -309,10 +317,10 @@ export default function Dashboard() {
             </div>
 
             <div className="bg-white p-6 rounded-3xl shadow-sm border border-black/5">
-              <h3 className="text-lg font-bold text-gray-900 mb-8">
+              <h3 className="md:text-lg text-[12px] font-bold text-gray-900 mb-8">
                 Spending By Category
               </h3>
-              <div className="h-[300px] w-full">
+              <div className="h-[300px] w-full md:text-sm text-[12px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <RePieChart>
                     <Pie
@@ -344,7 +352,7 @@ export default function Dashboard() {
                       height={36}
                       iconType="circle"
                       formatter={(value) => (
-                        <span className="text-xs text-gray-500 font-medium">
+                        <span className="md:text-xs text-[12px] text-gray-500 font-medium">
                           {value}
                         </span>
                       )}
@@ -358,34 +366,28 @@ export default function Dashboard() {
           {/* Recent Transactions */}
           <div className="bg-white rounded-3xl shadow-sm border border-black/5 overflow-hidden">
             <div className="p-6 border-b border-gray-50 flex justify-between items-center">
-              <h3 className="text-lg font-bold text-gray-900">
+              <h3 className="text-[12px] md:text-xl font-bold text-gray-900">
                 Recent Transactions
               </h3>
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-xl text-sm font-medium hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
-              >
-                <Plus size={18} />
-                Add Transaction
-              </button>
+            
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="bg-gray-50/50 text-gray-400 text-xs font-semibold uppercase tracking-wider">
+                  <tr className="bg-gray-50/50 text-gray-400 md:text-sm text-[10px] font-semibold uppercase tracking-wider">
                     <th className="px-6 py-4">Category</th>
                     <th className="px-6 py-4">Description</th>
                     <th className="px-6 py-4">Amount</th>
                     <th className="px-6 py-4">Date</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-50">
+                <tbody className="divide-y divide-gray-50 text-[10px]">
                   {transactions.slice(0, 5).map((t) => (
                     <tr
                       key={t.id}
                       className="hover:bg-gray-50/50 transition-colors group"
                     >
-                      <td className="px-6 py-4">
+                      <td className="px-6 py-4 text-[10px] md:text-sm">
                         <div className="flex items-center gap-3">
                           <div
                             className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -405,12 +407,12 @@ export default function Dashboard() {
                           </span>
                         </div>
                       </td>
-                      <td className="px-6 py-4 text-gray-500 text-sm">
+                      <td className="px-6 py-4 text-gray-500 text-[10px] md:text-sm">
                         {t.description}
                       </td>
                       <td
                         className={cn(
-                          "px-6 py-4 font-semibold text-sm",
+                          "px-6 py-4 font-semibold md:text-sm text-[10px]",
                           t.type === "income"
                             ? "text-emerald-600"
                             : "text-rose-600",
@@ -420,7 +422,7 @@ export default function Dashboard() {
                         {t.amount.toLocaleString()}
                       </td>
                       <td className="px-6 py-4">
-                        <div className="flex items-center gap-2 text-gray-400 text-sm">
+                        <div className="flex items-center gap-2 text-gray-400 text-[10px] md:text-sm">
                           <Calendar size={14} />
                           {format(parseISO(t.date), "MMM d, yyyy")}
                         </div>

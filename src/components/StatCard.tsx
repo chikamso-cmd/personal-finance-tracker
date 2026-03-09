@@ -28,8 +28,8 @@ const StatCard: React.FC<StatCardProps> = ({ title, amount, change, type, icon: 
       )}
     </div>
     <div>
-      <h3 className="text-sm text-gray-500 font-medium mb-1">{title}</h3>
-      <p className="text-2xl font-bold text-gray-900">₦{amount.toLocaleString()}</p>
+      <h3 className="md:text-sm text-[16px] text-gray-500 font-medium mb-1">{title}</h3>
+      <p className="md:text-2xl text-[16px] font-bold text-gray-900">₦{amount.toLocaleString()}</p>
     </div>
   </div>
 );

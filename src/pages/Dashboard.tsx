@@ -162,7 +162,7 @@ export default function Dashboard() {
 
         <main className="flex-1 ml-0 md:ml-64 md:p-8 p-3 overflow-hidden">
           {/* Header */}
-          <header className="flex flex-col sm:flex-row justify-between items-center mb-10 mt-10 md:mt-0 gap-5">
+          <header className="flex flex-col sm:flex-row justify-between items-center mb-10 md:mt-0 gap-5">
             <div className="flex items-center gap-4 w-full sm:w-auto justify-between">
               <button
                 className="md:hidden p-5 rounded-md"
@@ -195,18 +195,18 @@ export default function Dashboard() {
                 <Bell size={20} />
                 <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
               </button>
-              <div className="flex items-center gap-3 pl-6 border-l border-gray-200">
+              <div className="md:flex items-center gap-3 pl-6 border-l border-gray-200 hidden">
                 <img
                   src="https://picsum.photos/seed/user/100/100"
                   alt="Profile"
-                  className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm"
+                  className="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm hidden sm:block"
                   referrerPolicy="no-referrer"
                 />
                 <div className="text-sm">
                   <p className="font-semibold text-gray-900 text-[12px] md:text-[16px]">
                     John Doe
                   </p>
-                  {/* <p className="text-gray-500 text-xs">Premium Plan</p> */}
+                  <p className="text-gray-500 text-xs">Premium Plan</p>
                 </div>
                 <ChevronDown size={16} className="text-gray-400" />
               </div>

@@ -4,7 +4,6 @@ import {
   ArrowDownLeft,
   Wallet,
   Plus,
-  Search,
   Bell,
   ChevronDown,
   TrendingUp,
@@ -43,7 +42,7 @@ import TransactionModal from "../components/TransactionModal";
 
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState<DashboardProps>("dashboard");
+  const [activeTab, setActiveTab] = useState("dashboard");
   const [transactions, setTransactions] = useState<Transaction[]>(() => {
     const saved = localStorage.getItem("fintrack_transactions");
     return saved ? JSON.parse(saved) : INITIAL_TRANSACTIONS;
